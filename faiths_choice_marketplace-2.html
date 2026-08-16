@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faith's Choice Marketplace</title>
+  <meta name="description" content="Faith's Choice Marketplace — hair, fashion, kids, food goods, general merchandise, and personal shopping.">
+  <style>
+    :root{
+      --ink:#1d1b1f;
+      --muted:#6f6872;
+      --cream:#fffaf5;
+      --rose:#b85c73;
+      --rose-dark:#8f4056;
+      --gold:#d5a44b;
+      --card:#ffffff;
+      --line:#eadfe2;
+      --shadow:0 14px 40px rgba(54,31,40,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,250,245,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-family:Georgia,serif;font-size:1.45rem;font-weight:700;color:var(--rose-dark)}
+    .logo span{display:block;font:500 .68rem Arial;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+    .navlinks{display:flex;gap:24px;align-items:center;font-size:.95rem}
+    .navlinks a:hover{color:var(--rose)}
+    .menu{display:none;border:0;background:none;font-size:1.6rem}
+    .btn{display:inline-block;border:0;border-radius:999px;padding:13px 21px;font-weight:700;cursor:pointer;background:var(--rose);color:#fff;transition:.2s}
+    .btn:hover{background:var(--rose-dark);transform:translateY(-1px)}
+    .btn.light{background:#fff;color:var(--rose-dark);border:1px solid var(--line)}
+    .hero{padding:74px 0 62px;background:linear-gradient(135deg,#fff8f3,#f9e9ed 55%,#fffdf9)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+    .eyebrow{color:var(--rose-dark);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.76rem}
+    h1{font:700 clamp(2.5rem,6vw,4.7rem)/1.04 Georgia,serif;margin:14px 0 20px}
+    h2{font:700 clamp(2rem,4vw,3rem)/1.15 Georgia,serif;margin:0 0 12px}
+    h3{margin:10px 0 6px}
+    .hero p{font-size:1.1rem;color:var(--muted);max-width:610px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-card{background:#fff;border-radius:32px;padding:24px;box-shadow:var(--shadow);border:1px solid #f1e4e6}
+    .hero-art{height:410px;border-radius:25px;background:
+      radial-gradient(circle at 75% 25%,#d7a4b3 0 11%,transparent 12%),
+      radial-gradient(circle at 28% 72%,#e7c08a 0 13%,transparent 14%),
+      linear-gradient(145deg,#4b2632,#9e5268 55%,#e5b78d);
+      position:relative;overflow:hidden;display:flex;align-items:end;padding:25px;color:white}
+    .hero-art:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.45);border-radius:20px}
+    .hero-art strong{font:700 2rem Georgia,serif;position:relative;z-index:2}
+    section{padding:76px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+    .section-head p{color:var(--muted);max-width:590px;margin:0}
+    .categories{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .cat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 14px;text-align:center;box-shadow:0 8px 25px rgba(54,31,40,.05);transition:.2s}
+    .cat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .icon{font-size:2rem}
+    .cat b{display:block;margin-top:8px;font-size:.92rem}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(54,31,40,.05)}
+    .product-img{height:210px;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,#f6e5e7,#f6eee5)}
+    .product-body{padding:18px}
+    .tag{font-size:.72rem;color:var(--rose-dark);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+    .price{font-weight:800;font-size:1.1rem;margin:9px 0 14px}
+    .product .btn{width:100%;text-align:center;padding:10px}
+    .shopper{background:#2e2025;color:#fff;border-radius:30px;padding:44px}
+    .shopper-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .shopper p{color:#e8dce0}
+    form{display:grid;gap:12px}
+    input,textarea,select{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #d9cbd0;background:#fff;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .why-card{background:#fff;border:1px solid var(--line);padding:26px;border-radius:20px}
+    .contact{background:#f5e5e9}
+    footer{background:#20171b;color:#eee;padding:38px 0}
+    footer .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    footer p{margin:5px 0;color:#cfc1c5}
+    .tiny{font-size:.82rem;color:var(--muted)}
+    @media(max-width:900px){
+      .hero-grid,.shopper-grid{grid-template-columns:1fr}
+      .categories{grid-template-columns:repeat(3,1fr)}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .why{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .menu{display:block}
+      .hero-art{height:300px}
+    }
+    @media(max-width:560px){
+      section{padding:56px 0}
+      .categories{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:1fr}
+      .shopper{padding:28px 20px}
+      h1{font-size:2.7rem}
+      .section-head{display:block}
+      .section-head p{margin-top:8px}
+    }
+  
+    .cart-btn{position:relative}.cart-count{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#241b1e;border-radius:50%;min-width:21px;height:21px;font-size:.7rem;display:grid;place-items:center}
+    .cart-drawer{position:fixed;right:-420px;top:0;width:min(400px,92vw);height:100vh;background:#fff;z-index:100;box-shadow:-10px 0 40px rgba(0,0,0,.2);padding:24px;transition:.3s;overflow:auto}.cart-drawer.open{right:0}
+    .cart-head{display:flex;justify-content:space-between;align-items:center}.cart-item{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.cart-total{font-size:1.2rem;font-weight:800;margin:20px 0}.close{border:0;background:none;font-size:1.5rem;cursor:pointer}.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:90}.overlay.show{display:block}
+
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">Faith's Choice Marketplace<span>Everything You Need. One Place.</span></a>
+      <div class="navlinks">
+        <a href="#shop">Shop</a>
+        <a href="#personal-shopping">Personal Shopping</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a><button class="btn cart-btn" onclick="openCart()">Cart <span id="cartCount" class="cart-count">0</span></button>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </nav>
+    <div id="mobileMenu" style="display:none;padding:0 0 16px">
+      <a href="#shop" onclick="toggleMenu()">Shop</a><br>
+      <a href="#personal-shopping" onclick="toggleMenu()">Personal Shopping</a><br>
+      <a href="#about" onclick="toggleMenu()">About</a><br>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Welcome to Faith's Choice</div>
+        <h1>Shop fashion, hair & everyday essentials.</h1>
+        <p>A convenient marketplace for women, kids and families — plus personal shopping when you don't have time to shop yourself.</p>
+        <div class="actions">
+          <a class="btn" href="#shop">Start Shopping</a>
+          <a class="btn light" href="#personal-shopping">Request a Shopper</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-art"><strong>Style • Value • Convenience</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Browse</div><h2>Shop by category</h2></div>
+        <p>Explore our growing selection of products. Categories can be expanded as your inventory grows.</p>
+      </div>
+      <div class="categories">
+        <a class="cat" href="#featured"><div class="icon">💇🏽‍♀️</div><b>Hair</b></a>
+        <a class="cat" href="#featured"><div class="icon">👗</div><b>Women's Fashion</b></a>
+        <a class="cat" href="#featured"><div class="icon">👟</div><b>Shoes</b></a>
+        <a class="cat" href="#featured"><div class="icon">🧒🏽</div><b>Kids</b></a>
+        <a class="cat" href="#featured"><div class="icon">🛒</div><b>Food & Goods</b></a>
+        <a class="cat" href="#featured"><div class="icon">🏠</div><b>General Merchandise</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured" style="padding-top:10px">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Featured</div><h2>Popular picks</h2></div>
+        <p>Sample products are shown below. Replace these with your real inventory and prices.</p>
+      </div>
+      <div class="products">
+        <article class="product"><div class="product-img">💇🏽‍♀️</div><div class="product-body"><span class="tag">Hair</span><h3>Premium Hair Collection</h3><div class="price">From $65</div><button class="btn" onclick="addToCart('Premium Hair Collection',65)">Add to Cart</button></div></article>
+        <article class="product"><div class="product-img">👗</div><div class="product-body"><span class="tag">Fashion</span><h3>Women's Boutique Styles</h3><div class="price">From $25</div><button class="btn" onclick="addToCart('Women Boutique Styles',25)">Add to Cart</button></div></article>
+        <article class="product"><div class="product-img">👟</div><div class="product-body"><span class="tag">Shoes</span><h3>Everyday Shoes & Sneakers</h3><div class="price">From $30</div><button class="btn" onclick="addToCart('Everyday Shoes & Sneakers',30)">Add to Cart</button></div></article>
+        <article class="product"><div class="product-img">🧒🏽</div><div class="product-body"><span class="tag">Kids</span><h3>Kids' Clothing & Essentials</h3><div class="price">From $15</div><button class="btn" onclick="addToCart('Kids Clothing & Essentials',15)">Add to Cart</button></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="personal-shopping">
+    <div class="container">
+      <div class="shopper">
+        <div class="shopper-grid">
+          <div>
+            <div class="eyebrow" style="color:#e3b8c3">Personal Shopping</div>
+            <h2>Tell us what you need. We'll do the shopping.</h2>
+            <p>Need clothes, shoes, groceries, gifts, household items or something specific? Send your list and we'll help locate the products you're looking for.</p>
+            <p class="tiny" style="color:#cdbdc2">Final product availability, prices, delivery/pickup fees and substitutions are confirmed before purchase.</p>
+          </div>
+          <form onsubmit="submitShopper(event)">
+            <input id="name" required placeholder="Your name">
+            <input id="phone" required type="tel" placeholder="Phone number">
+            <select id="category" required>
+              <option value="">What are you shopping for?</option>
+              <option>Hair</option><option>Clothing</option><option>Shoes</option><option>Kids</option>
+              <option>Food & Grocery Goods</option><option>General Merchandise</option><option>Multiple categories</option>
+            </select>
+            <textarea id="request" required placeholder="Tell us what you need, sizes, preferred brands, budget, etc."></textarea>
+            <button class="btn" type="submit">Send Shopping Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Why Faith's Choice</div><h2>Shopping made simpler.</h2></div>
+        <p>Built around convenience, personal service and a selection that can grow with our customers.</p>
+      </div>
+      <div class="why">
+        <div class="why-card"><div class="icon">✨</div><h3>Convenient</h3><p>Shop multiple everyday categories from one place.</p></div>
+        <div class="why-card"><div class="icon">🤝🏽</div><h3>Personal Service</h3><p>Need help finding something? Our personal shopping service can help.</p></div>
+        <div class="why-card"><div class="icon">💗</div><h3>Customer Focused</h3><p>We aim to make every order straightforward and stress-free.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Get in touch</div><h2>Ready to shop?</h2></div>
+        <p>Use the form below for product questions, hair orders, personal shopping requests or general inquiries.</p>
+      </div>
+      <form style="max-width:700px" onsubmit="submitContact(event)">
+        <input id="contactName" required placeholder="Name">
+        <input id="contactEmail" required type="email" placeholder="Email">
+        <input id="contactPhone" type="tel" placeholder="Phone (optional)">
+        <textarea id="contactMessage" required placeholder="How can we help?"></textarea>
+        <button class="btn" type="submit">Send Message</button>
+        <p class="tiny">This demo form opens your email app. Connect it to your preferred form service or business email before launch.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<aside id="cartDrawer" class="cart-drawer"><div class="cart-head"><h2 style="font-size:1.7rem">Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"><p class="tiny">Your cart is empty.</p></div><div id="cartTotal" class="cart-total">Total: $0.00</div><button class="btn" style="width:100%" onclick="checkout()">Checkout / Send Order</button><p class="tiny">Secure payment is handled by Square. Your cart is submitted for payment through the Square checkout page.</p></aside>
+<footer>
+  <div class="container foot">
+    <div><strong>Faith's Choice Marketplace</strong><p>Everything You Need. One Place.</p></div>
+    <div><p>Hair • Fashion • Kids • Food & Goods • General Merchandise</p><p>© 2026 Faith's Choice Marketplace</p></div>
+  </div>
+</footer>
+
+<script>
+let cart=JSON.parse(localStorage.getItem('faithCart')||'[]');
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.style.display=m.style.display==='none'?'block':'none'}
+function addToCart(name,price){const i=cart.find(x=>x.name===name);if(i)i.qty++;else cart.push({name,price,qty:1});saveCart();openCart()}
+function removeFromCart(name){cart=cart.filter(x=>x.name!==name);saveCart()}
+function saveCart(){localStorage.setItem('faithCart',JSON.stringify(cart));renderCart()}
+function renderCart(){const count=cart.reduce((n,x)=>n+x.qty,0);document.getElementById('cartCount').textContent=count;const box=document.getElementById('cartItems');if(!cart.length){box.innerHTML='<p class="tiny">Your cart is empty.</p>';document.getElementById('cartTotal').textContent='Total: $0.00';return}let total=0;box.innerHTML=cart.map(x=>{total+=x.price*x.qty;return '<div class="cart-item"><div><b>'+x.name+'</b><div class="tiny">$'+x.price.toFixed(2)+' × '+x.qty+'</div></div><button class="close" onclick="removeFromCart('+JSON.stringify(x.name)+')">×</button></div>'}).join('');document.getElementById('cartTotal').textContent='Total: $'+total.toFixed(2)}
+function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('overlay').classList.add('show');renderCart()}
+function closeCart(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
+function checkout(){if(!cart.length){alert('Your cart is empty.');return}window.location.href='https://square.link/u/EUCbpgw7'}
+function submitShopper(e){e.preventDefault();const body='Name: '+encodeURIComponent(document.getElementById('name').value)+'%0APhone: '+encodeURIComponent(document.getElementById('phone').value)+'%0ACategory: '+encodeURIComponent(document.getElementById('category').value)+'%0ARequest: '+encodeURIComponent(document.getElementById('request').value);window.location.href='mailto:faithscoley@gmail.com?subject=Personal Shopping Request&body='+body}
+function submitContact(e){e.preventDefault();const body='Name: '+encodeURIComponent(document.getElementById('contactName').value)+'%0AEmail: '+encodeURIComponent(document.getElementById('contactEmail').value)+'%0APhone: '+encodeURIComponent(document.getElementById('contactPhone').value)+'%0A%0AMessage:%0A'+encodeURIComponent(document.getElementById('contactMessage').value);window.location.href='mailto:faithscoley@gmail.com?subject=Website Inquiry&body='+body}
+renderCart();
+</script>
+</body>
+</html>
